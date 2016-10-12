@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen" title="no title">
+
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .resize {
+        max-width: 100px;
+      }
+      .everything {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="container">
+    <h2>Calc</h2>
+
+
+<div class="everything">
+    <form class="form-inline" action="" method="get">
+      {% csrf_token %}
+      <input type="number" class="form-control resize" name="number1" placeholder="{{ answer }}">
+      <select name="operation">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="x">x</option>
+  <option value="/">/</option>
+</select>
+      <input type="number" class="form-control resize" name="number2" placeholder="####">
+      <input class="btn btn-default" type="submit" value="Submit">
+    </form>
+
+
+{{ EQ }}
+{{ answer }}
+
+
+</div>
+
+
+  </div>
+  </body>
+  <script src="{% static js.bootstrap.js %}"></script>
+</html>
