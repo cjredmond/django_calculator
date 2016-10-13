@@ -26,8 +26,8 @@ def index_view(request):
         number2 = numbers["number2"]
         operation = numbers["operation"]
     else:
-        number1 = 1
-        number2 = 1
+        number1 = "1"
+        number2 = "1"
         operation = "+"
 
     context = {
