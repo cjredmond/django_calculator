@@ -4,6 +4,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from app.models import Profile
 
 
 def equation(a,b,c):
@@ -49,3 +50,8 @@ class UserCreateView(CreateView):
 class ProfileView(ListView):
     model = User
     template_name = "profile.html"
+
+class ProfileUpdateView(UpdateView):
+    model = Profile
+    success_url = "/"
+    fields = ('access_level',)

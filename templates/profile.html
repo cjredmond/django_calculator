@@ -2,4 +2,6 @@
 
 {% block content %}
 {{ request.user }}
+{{ request.user.profile.access_level }}
+<a href="{% url 'profile_update_view' user.id %}">Edit</a>
 {% endblock %}
