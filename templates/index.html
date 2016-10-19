@@ -1,4 +1,6 @@
+{% extends 'base.html'%}
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,13 +18,7 @@
     </style>
   </head>
   <body>
-    <div class="">
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'logout' %}?next={% url 'index_view' %}">Logout</a></li>
-        <li>{{ request.user }}</li>
-        <li><a href="{% url 'index_view' %}">Calc</a></li>
-        <li><a href="{% url 'profile_view' %}">profile</a></li>
-    </div>
+    {% block content %}
   <div class="container">
     <h2>Calc</h2>
 
@@ -50,6 +46,7 @@
 
 
   </div>
+  {% endblock %}
   </body>
   <script src="{% static js.bootstrap.js %}"></script>
 </html>

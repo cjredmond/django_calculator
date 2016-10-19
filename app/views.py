@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from app.models import Profile, Operation_obj
 from django.core.urlresolvers import reverse, reverse_lazy
+import operator
 
 
 
@@ -64,5 +65,6 @@ class ProfileView(ListView):
 
 class ProfileUpdateView(UpdateView):
     model = Profile
-    success_url = "/"
+    def get_success_url(self):
+        return reverse('profile_view')
     fields = ('access_level',)

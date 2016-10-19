@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{{ request.user }}
-{{ request.user.profile.access_level }}
-<a href="{% url 'profile_update_view' request.user.profile.id  %}">Edit</a>
+<div class="container">
+<a href="{% url 'profile_update_view' request.user.profile.id  %}">Edit Profile</a>
+<h2>User Name: {{ request.user }}</h2>
+<h3>Access Level: {{ request.user.profile.access_level }}</h3><br>
+
+
+
+
 {% if request.user.profile.access_level == 'o' %}
 {% for x in EQS_owner %}
-<h4>{{ x.eq }} {{ x.answer }} - {{ x.user }}</h4>
+<div class="panel">
+
+
+<p>{{ x.eq }} {{ x.answer }} - {{ x.user }}</p>
+</div>
 {% endfor %}
 {% else %}
 
@@ -14,4 +23,5 @@
 <h4>{{ x.eq }} {{ x.answer }} {{ x.user }}</h4>
 {% endfor %}
 {% endif %}
+</div>
 {% endblock %}
