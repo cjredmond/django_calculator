@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+ACCESS_LEVELS = [ ('o', 'owner'), ('u', 'user')]
+
+class Profile(models.Model):
+    user = models.OneToOneField('auth.User')
+    access_level = models.CharField(max_length=1, choices=ACCESS_LEVELS)

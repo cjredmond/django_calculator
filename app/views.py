@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from django.views import View
+from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
 def equation(a,b,c):
@@ -35,3 +40,12 @@ def index_view(request):
     "EQ" : stringify(number1, operation, number2)
     }
     return render(request, "index.html", context)
+
+class UserCreateView(CreateView):
+    model = User
+    form_class = UserCreationForm
+    success_url = "/"
+
+class ProfileView(ListView):
+    model = User
+    template_name = "profile.html"
