@@ -3,5 +3,15 @@
 {% block content %}
 {{ request.user }}
 {{ request.user.profile.access_level }}
-<a href="{% url 'profile_update_view' user.id %}">Edit</a>
+<a href="{% url 'profile_update_view' request.user.profile.id  %}">Edit</a>
+{% if request.user.profile.access_level == 'o' %}
+{% for x in EQS_owner %}
+<h4>{{ x.eq }} {{ x.answer }} - {{ x.user }}</h4>
+{% endfor %}
+{% else %}
+
+{% for x in EQS %}
+<h4>{{ x.eq }} {{ x.answer }} {{ x.user }}</h4>
+{% endfor %}
+{% endif %}
 {% endblock %}

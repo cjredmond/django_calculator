@@ -10,7 +10,7 @@
   <body>
     <div class="">
         <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="{% url 'logout' %}?next={% url 'index_view' %}">Logout</a></li>
         <li>{{ request.user }}</li>
         <li><a href="{% url 'index_view' %}">Calc</a></li>
     </div>
