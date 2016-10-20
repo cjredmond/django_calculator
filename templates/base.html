@@ -6,6 +6,7 @@
      <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen" title="no title">
     <meta charset="utf-8">
     <title></title>
+
   </head>
   <body>
     <div class="container">
@@ -14,14 +15,15 @@
     <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="nav navbar-nav">
+        <li class="right">Logged in as: {{ request.user }}</li><br>
         <li><a href="{% url 'index_view' %}">Calc</a></li>
         {% if not request.user.is_authenticated %}
         <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'create_user_view' %}">Create User</a></li>
+        <li><a href="{% url 'user_create_view' %}">Create User</a></li>
         {% endif %}
         <li><a href="{% url 'logout' %}?next={% url 'index_view' %}">Logout</a></li>
         <li><a href="{% url 'profile_view' %}">Profile</a></li>
-        <li>{{ request.user }}</li>
+
 
     </div>
   </div>

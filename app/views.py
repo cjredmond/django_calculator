@@ -50,7 +50,8 @@ def index_view(request):
 class UserCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = "/"#reverse_lazy("profile_update_view")
+    success_url = "/"
+
 
 class ProfileView(ListView):
     model = User
